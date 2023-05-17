@@ -1,0 +1,10 @@
+namePrefix: kustomize-
+
+resources:
+- jenkins-ns.yaml
+- jenkins-sa.yaml
+- jenkins-storage.yaml
+- jenkins-deploy.yaml
+- jenkins-svc.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
