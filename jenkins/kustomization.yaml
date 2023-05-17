@@ -1,7 +1,4 @@
-namePrefix: kustomize-
-
 resources:
-- jenkins-ns.yaml
 - jenkins-sa.yaml
 - jenkins-storage.yaml
 - jenkins-deploy.yaml
