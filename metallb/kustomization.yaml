@@ -1,5 +1,3 @@
-namePrefix: kustomize-
-
 resources:
 - metallb-manifest.yaml
 - metallb-pool.yaml
