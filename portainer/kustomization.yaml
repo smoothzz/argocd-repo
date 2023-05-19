@@ -1,0 +1,6 @@
+resources:
+- metallb-manifest.yaml
+- metallb-pool.yaml
+- metallb-advertise.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
