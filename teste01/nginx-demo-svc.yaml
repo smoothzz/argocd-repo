@@ -5,7 +5,6 @@ metadata:
     app: nginxdemo
   name: nginxdemo
   namespace: default
-  resourceVersion: "1740"
 spec:
   clusterIP: 10.43.129.162
   clusterIPs:
