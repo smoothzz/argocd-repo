@@ -27,6 +27,8 @@ spec:
                 - longhorn-system
                 - argocd
                 - kyverno
+                - minio
+                - velero
       validate:
         message: "Every container must define CPU and memory requests and limits."
         pattern:

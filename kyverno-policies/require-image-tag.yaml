@@ -28,6 +28,8 @@ spec:
                 - longhorn-system
                 - argocd
                 - kyverno
+                - minio
+                - velero
       validate:
         message: "Container images must use an explicit tag and 'latest' is not allowed."
         deny:

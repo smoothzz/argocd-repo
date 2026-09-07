@@ -3,5 +3,7 @@ resources:
 - kyverno/app.yaml
 - kyverno-policies/app.yaml
 - longhorn/app.yaml
+- minio/app.yaml
+- velero/app.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
