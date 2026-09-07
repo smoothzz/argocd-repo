@@ -13,6 +13,8 @@ spec:
       releaseName: cilium
       values: |
         kubeProxyReplacement: true
+        operator:
+          replicas: 1
         bpf:
           masquerade: true
         ipam:
