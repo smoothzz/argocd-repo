@@ -24,6 +24,9 @@ spec:
                 - kube-system
                 - kube-node-lease
                 - kube-public
+                - longhorn-system
+                - argocd
+                - kyverno
       validate:
         message: "Every container must define CPU and memory requests and limits."
         pattern:

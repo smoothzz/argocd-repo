@@ -25,6 +25,9 @@ spec:
                 - kube-system
                 - kube-node-lease
                 - kube-public
+                - longhorn-system
+                - argocd
+                - kyverno
       validate:
         message: "Container images must use an explicit tag and 'latest' is not allowed."
         deny:
