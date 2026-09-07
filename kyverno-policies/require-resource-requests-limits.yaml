@@ -31,6 +31,7 @@ spec:
                 - velero
                 - openobserve
                 - openobserve-collector
+                - opentelemetry-operator
       validate:
         message: "Every container must define CPU and memory requests and limits."
         pattern:

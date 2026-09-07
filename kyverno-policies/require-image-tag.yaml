@@ -32,6 +32,7 @@ spec:
                 - velero
                 - openobserve
                 - openobserve-collector
+                - opentelemetry-operator
       validate:
         message: "Container images must use an explicit tag and 'latest' is not allowed."
         deny:

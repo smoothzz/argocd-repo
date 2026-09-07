@@ -14,7 +14,7 @@ spec:
       values: |
         k8sCluster: "smoothz"
         opentelemetry-operator:
-          enabled: true
+          enabled: false
         exporters:
           otlphttp/openobserve:
             endpoint: http://openobserve.openobserve:5080/api/default/
