@@ -1,0 +1,40 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-image-tag
+  annotations:
+    policies.kyverno.io/title: Require Image Tag
+    policies.kyverno.io/subject: Pod
+    policies.kyverno.io/description: >-
+      Requires every container image to use an explicit tag.
+      Images without a tag and images tagged 'latest' are rejected.
+spec:
+  validationFailureAction: Enforce
+  background: true
+  rules:
+    - name: require-non-latest-image-tag
+      match:
+        any:
+          - resources:
+              kinds:
+                - Pod
+      exclude:
+        any:
+          - resources:
+              namespaces:
+                - kube-system
+                - kube-node-lease
+                - kube-public
+      validate:
+        message: "Container images must use an explicit tag and 'latest' is not allowed."
+        deny:
+          conditions:
+            any:
+              - key: "{{ request.object.spec.containers[*].image }}"
+                operator: AnyIn
+                value:
+                  - "*:latest"
+              - key: "{{ request.object.spec.containers[*].image }}"
+                operator: AnyNotIn
+                value:
+                  - "*:*"

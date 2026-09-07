@@ -1,35 +1,29 @@
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
-  name: require-image-tag-and-resources
+  name: require-resource-requests-limits
   annotations:
-    policies.kyverno.io/title: Require Image Tags and Resource Requests/Limits
+    policies.kyverno.io/title: Require Resource Requests and Limits
     policies.kyverno.io/subject: Pod
     policies.kyverno.io/description: >-
-      Requires all container images to use an explicit tag and requires
-      CPU and memory requests and limits on every container.
+      Requires every container to define CPU and memory requests and limits.
 spec:
   validationFailureAction: Enforce
   background: true
   rules:
-    - name: require-image-tag
+    - name: require-requests-and-limits
       match:
         any:
           - resources:
               kinds:
                 - Pod
-      validate:
-        message: "Every container image must use an explicit tag (e.g. nginx:1.27)."
-        pattern:
-          spec:
-            containers:
-              - image: "*:*"
-    - name: require-resource-requests-and-limits
-      match:
+      exclude:
         any:
           - resources:
-              kinds:
-                - Pod
+              namespaces:
+                - kube-system
+                - kube-node-lease
+                - kube-public
       validate:
         message: "Every container must define CPU and memory requests and limits."
         pattern:
