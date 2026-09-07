@@ -29,6 +29,7 @@ spec:
                 - kyverno
                 - minio
                 - velero
+                - openobserve
       validate:
         message: "Every container must define CPU and memory requests and limits."
         pattern:

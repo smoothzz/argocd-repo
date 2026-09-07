@@ -30,6 +30,7 @@ spec:
                 - kyverno
                 - minio
                 - velero
+                - openobserve
       validate:
         message: "Container images must use an explicit tag and 'latest' is not allowed."
         deny:
