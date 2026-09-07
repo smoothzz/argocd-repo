@@ -12,12 +12,14 @@ spec:
     helm:
       releaseName: openobserve
       values: |
+        auth:
+          ZO_ROOT_USER_EMAIL: "admin@example.com"
+          ZO_ROOT_USER_PASSWORD: "OpenObserve#123"
         persistence:
           enabled: true
           size: 20Gi
         config:
-          ZO_ROOT_USER_EMAIL: "admin@example.com"
-          ZO_ROOT_USER_PASSWORD: "OpenObserve#123"
+          ZO_LOCAL_MODE: "true"
         service:
           type: NodePort
           http_port: 5080
