@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openobserve
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: openobserve-standalone
+    repoURL: https://charts.openobserve.ai/
+    targetRevision: 0.92.2
+    helm:
+      releaseName: openobserve
+      values: |
+        persistence:
+          enabled: true
+          size: 20Gi
+        config:
+          ZO_ROOT_USER_EMAIL: "admin@example.com"
+          ZO_ROOT_USER_PASSWORD: "OpenObserve#123"
+        service:
+          type: NodePort
+          http_port: 5080
+          http_nodePort: 30580
+          grpc_port: 5081
+          grpc_nodePort: 30581
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: openobserve
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
