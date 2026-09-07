@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openobserve-collector
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: openobserve-collector
+    repoURL: https://charts.openobserve.ai/
+    targetRevision: 0.4.6
+    helm:
+      releaseName: openobserve-collector
+      values: |
+        k8sCluster: "smoothz"
+        opentelemetry-operator:
+          enabled: true
+        exporters:
+          otlphttp/openobserve:
+            endpoint: http://openobserve.openobserve:5080/api/default/
+            headers:
+              Authorization: Basic YWRtaW5AZXhhbXBsZS5jb206T3Blbk9ic2VydmUjMTIz
+          otlphttp/openobserve_k8s_events:
+            endpoint: http://openobserve.openobserve:5080/api/default/
+            headers:
+              Authorization: Basic YWRtaW5AZXhhbXBsZS5jb206T3Blbk9ic2VydmUjMTIz
+              stream-name: k8s_events
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: openobserve-collector
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true

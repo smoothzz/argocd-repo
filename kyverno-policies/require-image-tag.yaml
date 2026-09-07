@@ -31,6 +31,7 @@ spec:
                 - minio
                 - velero
                 - openobserve
+                - openobserve-collector
       validate:
         message: "Container images must use an explicit tag and 'latest' is not allowed."
         deny:

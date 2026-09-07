@@ -30,6 +30,7 @@ spec:
                 - minio
                 - velero
                 - openobserve
+                - openobserve-collector
       validate:
         message: "Every container must define CPU and memory requests and limits."
         pattern:
