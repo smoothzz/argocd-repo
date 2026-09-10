@@ -19,11 +19,11 @@ spec:
           otlphttp/openobserve:
             endpoint: http://openobserve-openobserve-standalone.openobserve:5080/api/default/
             headers:
-              Authorization: Basic YWRtaW5AZXhhbXBsZS5jb206T3Blbk9ic2VydmUjMTIz
+              Authorization: Basic cm9vdEBleGFtcGxlLmNvbTpDb21wbGV4cGFzcyMxMjM=
           otlphttp/openobserve_k8s_events:
             endpoint: http://openobserve-openobserve-standalone.openobserve:5080/api/default/
             headers:
-              Authorization: Basic YWRtaW5AZXhhbXBsZS5jb206T3Blbk9ic2VydmUjMTIz
+              Authorization: Basic cm9vdEBleGFtcGxlLmNvbTpDb21wbGV4cGFzcyMxMjM=
               stream-name: k8s_events
   destination:
     server: "https://kubernetes.default.svc"
