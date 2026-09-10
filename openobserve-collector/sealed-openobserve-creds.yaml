@@ -1,0 +1,12 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: openobserve-creds
+  namespace: openobserve-collector
+spec:
+  encryptedData:
+    ZO_AUTH: AgBLuhy7WucTPniOXVuGj1wXowJ2S/3YDFmfEiNVLZGQUOW8bgbThy4LF2aQfC4jle2HRmeT3BReFWrgjX/Duju/g+hVrxKqJYxjCOAiQecEbIFFsujV+ZFoGPAbSFgQorihJ2vaDH1RBIpZHeO5S+wS8bBnSjCMvNUtH98R+4+MU2gVpExAmYTAeaGg4q4qFhwTqVHPJbKA0iFrJl8v8DWCtT/lWyOB9Ww3PojcdWI+b468vaY8g65lY//WYo/8U6mtTe/MhoYB1UioZDuiy35FfSimdmCE/jJtNkzmG6/Z+wL1QEWjkAOFw9uIP5VbLiBjphoWOgztDjnrQdW1Mq9JFVlc5dKLh/bwtpfALW85FT4UgmUR+cBKRyudvmpHjgN042MPeuwk/ktHA7EefvJlJ/vowUdLs2ecaJnFGY/SyMJhUkioOtNO2Ot+qcdaDi1Th3in/S9kBkInpCB8z455Uaj7Srv4SsQhdAd6xA2PyZvJwLPaQ8l8nykgkam3+VRsIcyA1n1L7FMt0/275/Cl84J8u3dz6TdBcM/VZGmVHSKtx89IaC8RwMmVWvF5dGUzJaiw6AA8XjeJQZTaUvMVhhqwVcnFE+N7DlGlbwSHYtyYqWbU1IRxGocV7jKfkgPjDQesbYIswcv3rJGlC9cMHg3IjA5+wqKA9tMsh6YgyMArLcajP+Ea/C+8ZPnPPBq7gTmvLOHQ9XOnyyHhYOxtnZw3HBoSdt/juDj7QbTIX8k31ih96xQUN0otmRx6ggQgjg==
+  template:
+    metadata:
+      name: openobserve-creds
+      namespace: openobserve-collector

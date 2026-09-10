@@ -5,26 +5,28 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    chart: openobserve-collector
-    repoURL: https://charts.openobserve.ai/
-    targetRevision: 0.4.6
-    helm:
-      releaseName: openobserve-collector
-      values: |
-        k8sCluster: "smoothz"
-        opentelemetry-operator:
-          enabled: false
-        exporters:
-          otlphttp/openobserve:
-            endpoint: http://openobserve-openobserve-standalone.openobserve:5080/api/default/
-            headers:
-              Authorization: Basic cm9vdEBleGFtcGxlLmNvbTpDb21wbGV4cGFzcyMxMjM=
-          otlphttp/openobserve_k8s_events:
-            endpoint: http://openobserve-openobserve-standalone.openobserve:5080/api/default/
-            headers:
-              Authorization: Basic cm9vdEBleGFtcGxlLmNvbTpDb21wbGV4cGFzcyMxMjM=
-              stream-name: k8s_events
+  sources:
+    - repoURL: https://github.com/smoothzz/argocd-repo
+      targetRevision: main
+      path: openobserve-collector
+    - repoURL: https://charts.openobserve.ai/
+      chart: openobserve-collector
+      targetRevision: 0.4.6
+      helm:
+        releaseName: openobserve-collector
+        values: |
+          k8sCluster: "smoothz"
+          gateway:
+            enabled: false
+          opentelemetry-operator:
+            enabled: false
+          exporters:
+            otlphttp/openobserve:
+              endpoint: http://openobserve-openobserve-standalone.openobserve:5080/api/default/
+            otlphttp/openobserve_k8s_events:
+              endpoint: http://openobserve-openobserve-standalone.openobserve:5080/api/default/
+              headers:
+                stream-name: k8s_events
   destination:
     server: "https://kubernetes.default.svc"
     namespace: openobserve-collector
