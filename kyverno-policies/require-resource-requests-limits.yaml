@@ -32,6 +32,8 @@ spec:
                 - openobserve
                 - openobserve-collector
                 - opentelemetry-operator
+                - metallb-system
+                - gateway
       validate:
         message: "Every container must define CPU and memory requests and limits."
         pattern:

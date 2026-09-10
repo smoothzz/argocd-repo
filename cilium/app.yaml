@@ -13,6 +13,8 @@ spec:
       releaseName: cilium
       values: |
         kubeProxyReplacement: true
+        gatewayAPI:
+          enabled: true
         operator:
           replicas: 1
         bpf:

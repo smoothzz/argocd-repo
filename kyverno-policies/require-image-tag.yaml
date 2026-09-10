@@ -33,6 +33,8 @@ spec:
                 - openobserve
                 - openobserve-collector
                 - opentelemetry-operator
+                - metallb-system
+                - gateway
       validate:
         message: "Container images must use an explicit tag and 'latest' is not allowed."
         deny:
