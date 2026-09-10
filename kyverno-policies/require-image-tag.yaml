@@ -35,6 +35,7 @@ spec:
                 - opentelemetry-operator
                 - metallb-system
                 - gateway
+                - cert-manager
       validate:
         message: "Container images must use an explicit tag and 'latest' is not allowed."
         deny:
