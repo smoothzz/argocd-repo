@@ -1,16 +1,16 @@
 apiVersion: gateway.networking.k8s.io/v1
-kind: TLSRoute
+kind: HTTPRoute
 metadata:
   name: argocd
   namespace: gateway
 spec:
   parentRefs:
     - name: home
-      sectionName: https
+      sectionName: http
   hostnames:
     - "argocd.smoothz.lan"
   rules:
     - backendRefs:
         - name: argocd-server
           namespace: argocd
-          port: 443
+          port: 80
