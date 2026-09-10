@@ -161,6 +161,158 @@ spec:
               - delete_key(body, "spec") where body["kind"] == "CustomResourceDefinition"
               - delete_key(body, "status") where body["kind"] == "CustomResourceDefinition"
     receivers:
+      k8sobjects/clusterrolebindings:
+        auth_type: serviceAccount
+        objects:
+          - group: rbac.authorization.k8s.io
+            mode: watch
+            name: clusterrolebindings
+      k8sobjects/clusterroles:
+        auth_type: serviceAccount
+        objects:
+          - group: rbac.authorization.k8s.io
+            mode: watch
+            name: clusterroles
+      k8sobjects/configmaps:
+        auth_type: serviceAccount
+        objects:
+          - mode: watch
+            name: configmaps
+      k8sobjects/crds:
+        auth_type: serviceAccount
+        objects:
+          - group: apiextensions.k8s.io
+            interval: 5m
+            mode: pull
+            name: customresourcedefinitions
+      k8sobjects/cronjobs:
+        auth_type: serviceAccount
+        objects:
+          - group: batch
+            mode: watch
+            name: cronjobs
+      k8sobjects/daemonsets:
+        auth_type: serviceAccount
+        objects:
+          - group: apps
+            mode: watch
+            name: daemonsets
+      k8sobjects/deployments:
+        auth_type: serviceAccount
+        objects:
+          - group: apps
+            mode: watch
+            name: deployments
+      k8sobjects/endpoints:
+        auth_type: serviceAccount
+        objects:
+          - mode: watch
+            name: endpoints
+      k8sobjects/events:
+        auth_type: serviceAccount
+        objects:
+          - group: events.k8s.io
+            mode: watch
+            name: events
+      k8sobjects/hpa:
+        auth_type: serviceAccount
+        objects:
+          - group: autoscaling
+            mode: watch
+            name: horizontalpodautoscalers
+      k8sobjects/ingresses:
+        auth_type: serviceAccount
+        objects:
+          - group: networking.k8s.io
+            mode: watch
+            name: ingresses
+      k8sobjects/jobs:
+        auth_type: serviceAccount
+        objects:
+          - group: batch
+            mode: watch
+            name: jobs
+      k8sobjects/limitranges:
+        auth_type: serviceAccount
+        objects:
+          - mode: watch
+            name: limitranges
+      k8sobjects/namespaces:
+        auth_type: serviceAccount
+        objects:
+          - mode: watch
+            name: namespaces
+      k8sobjects/networkpolicies:
+        auth_type: serviceAccount
+        objects:
+          - group: networking.k8s.io
+            mode: watch
+            name: networkpolicies
+      k8sobjects/nodes:
+        auth_type: serviceAccount
+        objects:
+          - mode: watch
+            name: nodes
+      k8sobjects/persistentvolumes:
+        auth_type: serviceAccount
+        objects:
+          - mode: watch
+            name: persistentvolumes
+      k8sobjects/pods:
+        auth_type: serviceAccount
+        objects:
+          - mode: watch
+            name: pods
+      k8sobjects/pvcs:
+        auth_type: serviceAccount
+        objects:
+          - mode: watch
+            name: persistentvolumeclaims
+      k8sobjects/replicasets:
+        auth_type: serviceAccount
+        objects:
+          - group: apps
+            mode: watch
+            name: replicasets
+      k8sobjects/resourcequotas:
+        auth_type: serviceAccount
+        objects:
+          - mode: watch
+            name: resourcequotas
+      k8sobjects/rolebindings:
+        auth_type: serviceAccount
+        objects:
+          - group: rbac.authorization.k8s.io
+            mode: watch
+            name: rolebindings
+      k8sobjects/roles:
+        auth_type: serviceAccount
+        objects:
+          - group: rbac.authorization.k8s.io
+            mode: watch
+            name: roles
+      k8sobjects/serviceaccounts:
+        auth_type: serviceAccount
+        objects:
+          - mode: watch
+            name: serviceaccounts
+      k8sobjects/services:
+        auth_type: serviceAccount
+        objects:
+          - mode: watch
+            name: services
+      k8sobjects/statefulsets:
+        auth_type: serviceAccount
+        objects:
+          - group: apps
+            mode: watch
+            name: statefulsets
+      k8sobjects/storageclasses:
+        auth_type: serviceAccount
+        objects:
+          - group: storage.k8s.io
+            mode: watch
+            name: storageclasses
       otlp:
         protocols:
           grpc:
